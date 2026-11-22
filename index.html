@@ -439,7 +439,7 @@ section{padding-block:72px;scroll-margin-top:70px}
 @media (max-width:900px){.stack{grid-template-columns:repeat(2,1fr)}.stack .grp{padding:22px 16px 24px 0!important;border-left:0!important}.stack .grp:nth-child(2n){padding-left:16px!important;border-left:1px solid var(--line)!important}}
 @media (max-width:560px){.stack{grid-template-columns:1fr}.stack .grp{padding:20px 0!important;border-left:0!important}.stack .grp:nth-child(2n){padding-left:0!important;border-left:0!important}}
 
-/*contact*/.contact{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(110% 90% at 0% 0%, var(--violet) 0%, transparent 55%), radial-gradient(70% 70% at 100% 100%, color-mix(in srgb,var(--violet-2) 45%,transparent), transparent 70%), var(--panel);color:var(--panel-fg);border-radius:22px;padding:56px clamp(22px,5vw,56px);display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}
+/*contact*/.contact{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(110% 90% at 0% 0%, var(--violet) 0%, transparent 55%), radial-gradient(70% 70% at 100% 100%, color-mix(in srgb,var(--violet-2) 45%,transparent), transparent 70%), var(--panel);color:var(--panel-fg);border-radius:22px;padding:56px clamp(22px,5vw,56px);display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:stretch}
 .contact::before{content:"";position:absolute;z-index:-1;width:520px;height:520px;left:-120px;top:-200px;border-radius:50%;
   background:radial-gradient(circle, color-mix(in srgb,var(--accent) 30%,transparent), transparent 65%);filter:blur(20px);animation:float 16s ease-in-out infinite alternate}
 .contact h2{font-size:clamp(36px,5.4vw,64px);letter-spacing:-.03em}
@@ -453,7 +453,11 @@ section{padding-block:72px;scroll-margin-top:70px}
 .cline a{color:var(--panel-fg);text-decoration:none}
 .cline button{font:500 12px var(--mono);background:var(--accent);color:var(--accent-ink);border:0;padding:7px 12px;border-radius:999px;cursor:pointer;flex:0 0 auto;transition:transform .2s var(--ease)}
 .cline button:active{transform:scale(.94)}
-.cside{display:flex;flex-direction:column;gap:22px;min-width:0}
+.chead{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:end;min-width:0}
+.chead .avail{margin:0}
+.cside{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-width:0}
+.cside .cbox{display:contents}
+.cform .msg:empty{display:none}
 .avail{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .avail li{display:flex;gap:10px;align-items:baseline;color:color-mix(in srgb,var(--panel-fg) 85%,transparent)}
 .avail li::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--accent);translate:0 -1px;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
@@ -473,7 +477,7 @@ section{padding-block:72px;scroll-margin-top:70px}
 .cform button:disabled{opacity:.6;cursor:wait}
 .cform .msg{margin:0;font-size:14px;min-height:1.2em}
 .cform .msg.ok{color:var(--accent)}.cform .msg.err{color:#FF9B9B}
-@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:860px){.contact{grid-template-columns:1fr}.chead{grid-template-columns:1fr;gap:16px}}
 @media (max-width:520px){.cform .row2{grid-template-columns:1fr}.cform{padding:18px}}
 footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
@@ -593,16 +597,18 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;ju
 
   <section id="contacto">
     <div class="contact rv">
-      <div class="cside">
+      <div class="chead">
         <div>
           <h2 data-i18n-html="contact.title">¿Tenés un proyecto? <em>Hablemos.</em></h2>
           <p data-i18n="contact.sub">Sitios, aplicaciones web o un agente de IA para tu WhatsApp.</p>
-          <ul class="avail">
+        </div>
+        <ul class="avail">
             <li data-i18n="av.1">Abierta a oportunidades freelance, part-time o full-time.</li>
             <li data-i18n="av.2">Roles de Frontend, desarrollo WordPress y aplicaciones web.</li>
             <li data-i18n="av.3">Trabajo remoto o híbrido (Buenos Aires).</li>
-          </ul>
-        </div>
+        </ul>
+      </div>
+      <div class="cside">
         <div class="cbox">
           <div class="cline"><code id="mail">mapilarbonanni@gmail.com</code><button id="copy-mail" data-i18n="contact.copy">Copiar</button></div>
           <div class="cline"><a href="https://wa.me/5492215757647" target="_blank" rel="noopener">WhatsApp · +54 9 221 575-7647</a><span aria-hidden="true">↗</span></div>
